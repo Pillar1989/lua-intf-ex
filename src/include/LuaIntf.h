@@ -42,12 +42,13 @@ namespace LuaIntf
 #include "impl/CppBindModule.h"
 #include "impl/CppBindClass.h"
 #include "impl/CppFunction.h"
+#include "impl/TensorView.h"
 
 #if LUAINTF_HEADERS_ONLY
-#include "src/CppBindModule.cpp"
-#include "src/CppBindClass.cpp"
-#include "src/CppObject.cpp"
-#include "src/CppFunction.cpp"
+#include "../CppBindModule.cpp"
+#include "../CppBindClass.cpp"
+#include "../CppObject.cpp"
+#include "../CppFunction.cpp"
 #endif
 
 //---------------------------------------------------------------------------
