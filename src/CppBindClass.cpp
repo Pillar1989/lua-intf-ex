@@ -395,6 +395,10 @@ LUA_INLINE void CppBindClassBase::setMemberFunction(const char* name, const LuaR
 {
     LuaRef meta_class = m_meta.rawget("___class");
     LuaRef meta_const = m_meta.rawget("___const");
+    
+    // Metamethods (like __len, __add, __eq) are simply set as regular fields
+    // on the metatable. Lua VM will find them there during metamethod lookup.
+    // No special handling needed - just set them like regular functions.
     meta_class.rawset(name, proc);
     if (is_const) {
         meta_const.rawset(name, proc);

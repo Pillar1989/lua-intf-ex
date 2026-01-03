@@ -73,9 +73,18 @@ struct CppBindClassDestructor
 {
     /**
      * lua_CFunction to call CppObject destructor (for __gc)
+     * 
+     * Note: This may be called on tables (metatable itself during Lua state cleanup).
+     * We silently ignore non-userdata to avoid warnings.
      */
     static int call(lua_State* L)
     {
+        // Check if argument is actually userdata (not table/metatable)
+        if (!lua_isuserdata(L, 1)) {
+            // Silently ignore - this is metatable being cleaned up, not an object
+            return 0;
+        }
+        
         try {
             CppObject* obj = CppObject::getExactObject<T>(L, 1, IS_CONST);
             obj->~CppObject();
