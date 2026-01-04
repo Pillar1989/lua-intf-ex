@@ -1,7 +1,7 @@
-lua-intf
+lua-intf-ex
 ========
 
-`lua-intf` is a binding between C++11 and Lua language, it provides three different set of API in one package:
+`lua-intf-ex` is a binding between C++11 and Lua language, it provides three different set of API in one package:
 
 + `LuaBinding`, Export C++ class or function to Lua script
 + `LuaRef`, High level API to access Lua object
