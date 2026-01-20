@@ -31,6 +31,14 @@
 
 #include "LuaContext.h"
 
+// Include standard library headers BEFORE namespace LuaIntf
+// to avoid nested namespace std inside LuaIntf
+#include <memory>
+#include <stdexcept>
+#include <cstddef>
+#include <string>
+#include <vector>
+
 namespace LuaIntf
 {
 
